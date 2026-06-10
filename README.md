@@ -1,34 +1,31 @@
 #include <stdio.h>
 
-int main()
-{
-    int base, exponent;
-    int result = 1; 
+int main() {
+    double base;
+    int exponent;
+    double result = 1.0;
 
-  
-    printf("Enter your base num: ");
-    scanf("%d", &base);
 
- 
-    printf("Enter your exponent num: ");
+    printf("Enter base (x): ");
+    scanf("%lf", &base);
+    printf("Enter integer exponent (y): ");
     scanf("%d", &exponent);
-       // ১. পাওয়ার মাইনাস হলেও লুপ চালানোর জন্য তাকে প্লাস (Absolute) বানিয়ে নেওয়া
+
+      //  পাওয়ার মাইনাস হলেও লুপ চালানোর জন্য তাকে প্লাস (Absolute) বানিয়ে নেওয়া
     int abs_exponent = exponent < 0 ? -exponent : exponent;
 
 
-    for(int i = 0; i < abs_exponent; i++)
-    {
-        result = result * base; 
-    }
-    if(exponent<0)
-    {
-        result= 1/result;
+    for (int i = 0; i < abs_exponent; i++) {
+        result *= base;
     }
 
-  
-    printf("Result is: %d\n", result);
+
+    if (exponent < 0) {
+        result = 1.0 / result;
+    }
+
+
+    printf("%.2lf^%d = %.6lf\n", base, exponent, result);
 
     return 0;
 }
-
-
